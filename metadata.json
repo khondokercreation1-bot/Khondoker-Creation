@@ -1,0 +1,8 @@
+{
+  "name": "Khondoker Creation",
+  "description": "High-end agency studio for Khondoker Creation with AI assistant powered by Gemini for graphic design, video editing, marketing, and UI/UX.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

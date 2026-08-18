@@ -1,0 +1,51 @@
+{
+  "entities": {
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "Client project discovery and quote requests",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 100 },
+        "serviceCategory": { "type": "string", "maxLength": 100 },
+        "budget": { "type": "string", "maxLength": 50 },
+        "message": { "type": "string", "maxLength": 2000 },
+        "type": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["name", "email"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Live chat conversation messages",
+      "type": "object",
+      "properties": {
+        "sender": { "type": "string", "enum": ["user", "assistant"] },
+        "senderName": { "type": "string", "maxLength": 100 },
+        "text": { "type": "string", "maxLength": 2000 }
+      },
+      "required": ["sender", "text"]
+    },
+    "PortfolioSettings": {
+      "title": "PortfolioSettings",
+      "description": "Custom portfolio item configuration",
+      "type": "object",
+      "properties": {
+        "items": { "type": "array" }
+      }
+    }
+  },
+  "firestore": {
+    "/inquiries": {
+      "schema": "Inquiry",
+      "description": "Stores user contact form submissions & estimate quotes"
+    },
+    "/chats": {
+      "schema": "ChatMessage",
+      "description": "Stores live chat messages with automated responses"
+    },
+    "/portfolio_settings/items": {
+      "schema": "PortfolioSettings",
+      "description": "Stores current dynamic portfolio items"
+    }
+  }
+}
